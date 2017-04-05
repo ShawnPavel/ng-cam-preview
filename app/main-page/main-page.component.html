@@ -1,0 +1,16 @@
+<ActionBar title="My App" class="action-bar">
+</ActionBar>
+<GridLayout class="page">
+    <GridLayout *ngIf="!ready">
+        <ActivityIndicator busy="true"></ActivityIndicator>
+    </GridLayout>
+    <GridLayout *ngIf="ready">
+        <android-camera-preview rowSpan="3" colSpan="3"></android-camera-preview>
+        <GridLayout>
+            <Image src="res://overlay"></Image>
+        </GridLayout>
+        <GridLayout rows="*, auto" colums="*, auto, *">
+            <Button row="1" col="1" text="Take Photo" (tap)="capture()"></Button>
+        </GridLayout>
+    </GridLayout>
+</GridLayout>
