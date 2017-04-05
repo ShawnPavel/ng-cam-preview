@@ -1,0 +1,6 @@
+.DS_Store
+
+hooks/
+node_modules/
+platforms/
+plugins/
