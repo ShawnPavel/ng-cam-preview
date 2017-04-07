@@ -219,12 +219,10 @@ if (application.android) {
 				java.lang.Integer.valueOf(android.hardware.camera2.CameraMetadata.CONTROL_MODE_AUTO));
 
 			// TODO: rotation
-			let rotation = appContext.getWindowManager().getDefaultDisplay().getRotation();
-			console.log(rotation);
-			captureBuilder.set(android.hardware.camera2.CaptureRequest.JPEG_ORIENTATION, java.lang.Integer.valueOf(getRotation(rotation)));
+			// let rotation = appContext.getWindowManager().getDefaultDisplay().getRotation();
+			// captureBuilder.set(android.hardware.camera2.CaptureRequest.JPEG_ORIENTATION, java.lang.Integer.valueOf(getRotation(rotation)));
 
 			let file = new java.io.File(android.os.Environment.getExternalStorageDirectory() + "/DCIM", "pic" + (Math.floor(Math.random() * 9999) + 1) + ".jpg");
-			console.log('burp');
 			let readerListener = new android.media.ImageReader.OnImageAvailableListener({
 				save(bytes) {
 					console.log('Saving Bytes');
@@ -243,7 +241,7 @@ if (application.android) {
 					try {
 						image = reader.acquireLatestImage();
 						let buffer = image.getPlanes()[0].getBuffer();
-						let bytes = Array.create('byte', buffer.capacity());
+						let bytes = (<any>Array).create('byte', buffer.capacity());
 						buffer.get(bytes);
 						this.save(bytes);
 					} catch (err) {
@@ -281,7 +279,6 @@ if (application.android) {
 				}
 			});
 
-			console.log('burp');
 			mCameraDevice.createCaptureSession(outputSurfaces, new captureStateCallback(), backgroundHandler);
 		} catch (err) {
 			console.error(err);
