@@ -5,12 +5,13 @@
         <ActivityIndicator busy="true"></ActivityIndicator>
     </GridLayout>
     <GridLayout *ngIf="ready">
-        <android-camera-preview rowSpan="3" colSpan="3"></android-camera-preview>
+        <android-camera-preview rowSpan="3" colSpan="3" *ngIf="!isIos()"></android-camera-preview>
+        <ios-camera-preview rowSpan="3" colSpan="3" *ngIf="isIos()"></ios-camera-preview>
         <GridLayout>
             <Image src="res://overlay"></Image>
         </GridLayout>
         <GridLayout rows="*, auto" colums="*, auto, *">
-            <Button row="1" col="1" text="Take Photo" (tap)="capture()"></Button>
+            <Button row="1" col="1" text="Take Photo" (tap)="capture()" class="capture-button"></Button>
         </GridLayout>
     </GridLayout>
 </GridLayout>

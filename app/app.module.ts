@@ -5,6 +5,7 @@ import { AppComponent } from "./app.component";
 
 import { MainPageComponent } from "./main-page/main-page.component";
 import { AndroidCameraPreviewComponent } from './android-camera-preview-component/android-camera-preview.component';
+import { IosCameraPreviewComponent } from './ios-camera-preview-component/ios-camera-preview.component';
 
 @NgModule({
     bootstrap: [
@@ -17,7 +18,8 @@ import { AndroidCameraPreviewComponent } from './android-camera-preview-componen
     declarations: [
         AppComponent,
         MainPageComponent,
-        AndroidCameraPreviewComponent
+        AndroidCameraPreviewComponent,
+        IosCameraPreviewComponent
     ],
     providers: [
     ],
