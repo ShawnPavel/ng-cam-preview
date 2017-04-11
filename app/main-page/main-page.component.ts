@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import * as platform from 'platform';
 
-import { AndroidCameraPreviewComponent } from '../android-camera-preview-component/android-camera-preview.component';
-import { IosCameraPreviewComponent } from '../ios-camera-preview-component/ios-camera-preview.component';
+import { CameraPreviewComponent } from '../camera-preview-component/camera-preview.component';
 
 @Component({
     selector: "ns-main-page",
@@ -11,9 +10,7 @@ import { IosCameraPreviewComponent } from '../ios-camera-preview-component/ios-c
     styleUrls: ['main-page.css']
 })
 export class MainPageComponent implements OnInit {
-
-    @ViewChild(AndroidCameraPreviewComponent) public androidCamera: AndroidCameraPreviewComponent;
-    @ViewChild(IosCameraPreviewComponent) public iosCamera: IosCameraPreviewComponent;
+    @ViewChild(CameraPreviewComponent) public cameraPreview: CameraPreviewComponent;
 
     private ready: boolean = false;
 
@@ -25,11 +22,11 @@ export class MainPageComponent implements OnInit {
     }
 
     private startRequest(): void {
-        if (this.isIos()) {
+        if (platform.isIOS) {
             this.ready = true;
         } else {
-            if (!AndroidCameraPreviewComponent.hasPermissions()) {
-                AndroidCameraPreviewComponent.requestPermissions();
+            if (!CameraPreviewComponent.hasPermissions()) {
+                CameraPreviewComponent.requestPermissions();
                 setTimeout(() => { this.startRequest() }, 10000);
             } else {
                 this.ready = true;
@@ -39,11 +36,7 @@ export class MainPageComponent implements OnInit {
 
     private capture(): void {
         console.log('capture');
-        if (this.isIos()) {
-            this.iosCamera.takePhoto();
-        } else {
-            this.androidCamera.takePhoto();
-        }
+        this.cameraPreview.takePhoto();
     }
 
     private isIos(): boolean {

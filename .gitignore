@@ -1,6 +1,20 @@
+.vscode/
+npm-debug.log
+
+app/**/*.js
+**/*.js.map
+hooks/
+lib/
+node_modules/
+
+/platforms/*
+
+tmp/
+typings/
+*.orig
+
 .DS_Store
 
-hooks/
-node_modules/
-platforms/
-plugins/
+app/app\.android\.css
+
+app/app\.ios\.css

@@ -5,8 +5,7 @@
         <ActivityIndicator busy="true"></ActivityIndicator>
     </GridLayout>
     <GridLayout *ngIf="ready">
-        <android-camera-preview rowSpan="3" colSpan="3" *ngIf="!isIos()"></android-camera-preview>
-        <ios-camera-preview rowSpan="3" colSpan="3" *ngIf="isIos()"></ios-camera-preview>
+        <camera-preview *ngIf="ready"></camera-preview>
         <GridLayout>
             <Image src="res://overlay"></Image>
         </GridLayout>

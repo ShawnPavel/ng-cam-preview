@@ -4,8 +4,7 @@ import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
 import { MainPageComponent } from "./main-page/main-page.component";
-import { AndroidCameraPreviewComponent } from './android-camera-preview-component/android-camera-preview.component';
-import { IosCameraPreviewComponent } from './ios-camera-preview-component/ios-camera-preview.component';
+import { CameraPreviewComponent } from './camera-preview-component/camera-preview.component';
 
 @NgModule({
     bootstrap: [
@@ -18,8 +17,7 @@ import { IosCameraPreviewComponent } from './ios-camera-preview-component/ios-ca
     declarations: [
         AppComponent,
         MainPageComponent,
-        AndroidCameraPreviewComponent,
-        IosCameraPreviewComponent
+        CameraPreviewComponent
     ],
     providers: [
     ],
