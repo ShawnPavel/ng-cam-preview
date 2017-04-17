@@ -2,6 +2,19 @@
 	background-color: lightgreen;
 }
 
-.overlay {
-	opacity: 0.4;
+.ls-overlay {
+	width: 95%;
+}
+
+.bg-overlay {
+	background-color: black;
+	opacity: 0.75;
+}
+
+.valid {
+	color: green;
+}
+
+.invalid {
+	color: red;
 }

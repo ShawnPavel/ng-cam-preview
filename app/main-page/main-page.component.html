@@ -6,11 +6,25 @@
     </GridLayout>
     <GridLayout *ngIf="ready">
         <camera-preview *ngIf="ready"></camera-preview>
-        <GridLayout>
-            <Image src="res://overlay"></Image>
+        <GridLayout rows="*, auto, *" columns="*, auto, *">
+            <GridLayout colSpan="3" class="bg-overlay"></GridLayout>
+            <GridLayout row="1" class="bg-overlay"></GridLayout>
+            <GridLayout row="1" col="2" class="bg-overlay"></GridLayout>
+            <GridLayout row="2" colSpan="3" class="bg-overlay"></GridLayout>
+
+            <Image src="res://overlay" row="1" col="1" stretch="aspectFill" class="ls-overlay"></Image>
+            <Image src="res://level" row="1" col="1" stretch="aspectFill" class="ls-overlay"></Image>
         </GridLayout>
+
+        <AbsoluteLayout #absLayout>
+            <Image #bubble src="res://bubble" width="50" height="50" [left]="dotLeft" [top]="dotTop" style="opacity: .5;"></Image>
+        </AbsoluteLayout>
+        <StackLayout style="color: white; padding: 5;">
+            <Label text="{{ 'X: ' + x }}" [class.valid]='isValidTilt(x)' [class.invalid]='!isValidTilt(x)'></Label>
+            <Label text="{{ 'Y: ' + y }}" [class.valid]='isValidTilt(y)' [class.invalid]='!isValidTilt(y)'></Label>
+        </StackLayout>
         <GridLayout rows="*, auto" colums="*, auto, *">
-            <Button row="1" col="1" text="Take Photo" (tap)="capture()" class="capture-button"></Button>
+            <Button row="1" col="1" text="Take Photo" (tap)="capture()" class="capture-button" [isEnabled]="isValidOrientation()"></Button>
         </GridLayout>
     </GridLayout>
 </GridLayout>

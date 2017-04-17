@@ -320,9 +320,19 @@ if (application.android) {
 			startPreview();
 		},
 		onError(camera, error) {
+            mCameraDevice.close();
+			mCameraDevice = null;
+
+            let activity = application.android.foregroundActivity;
+            if (null != activity) {
+                activity.finish();
+			}
+			
 			console.error('CameraDevice.StateCallbackError: ' + error);
 		},
 		onDisconnected(camera) {
+            mCameraDevice.close();
+			mCameraDevice = null;
 			console.log('CameraDevice.StateCallback onDisconnected');
 		}
 	});
