@@ -1,11 +1,9 @@
 # Camera Preview
 ## With image capture functionality
 
-Currently only Android is implemented. 
+Android and iOS are functional, but far from finished.
 
 NOTE:
-This is not finished by any means.
+This is not finished by any means and not provided with any garauntee of working.
 
-### Running App
-`tns install`  
-`tns run android`
+Good luck, and have fun.
