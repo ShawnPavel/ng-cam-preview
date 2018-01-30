@@ -1,9 +1,5 @@
 # Camera Preview
 ## With image capture functionality
 
-Android and iOS are functional, but far from finished.
-
-NOTE:
-This is not finished by any means and not provided with any guarantee of working.
-
-Good luck, and have fun.
+This repo is no longer active.
+Check out: https://github.com/nstudio/nativescript-camera-plus
